@@ -1,23 +1,5 @@
 // Oyun Değişkenleri
 let player;
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-
-// Canvas boyutlandırma
-function resizeCanvas() {
-    const oldWidth = canvas.width;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    // Oyuncu pozisyonunu orantılı olarak güncelle
-    if (oldWidth > 0) {
-        player.x = (player.x / oldWidth) * canvas.width;
-        player.y = canvas.height - 100;
-    }
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
 // Oyun Durumu
 let gameState = {
     screen: 'mainMenu',
@@ -36,6 +18,23 @@ let settings = {
     roadType: 'highway',
     carType: 'red'
 };
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Canvas boyutlandırma
+function resizeCanvas() {
+    const oldWidth = canvas.width;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Oyuncu pozisyonunu orantılı olarak güncelle
+    if (oldWidth > 0) {
+        player.x = (player.x / oldWidth) * canvas.width;
+        player.y = canvas.height - 100;
+    }
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas)
 
 // Mevsim Renkleri
 const seasonColors = {
@@ -515,3 +514,4 @@ function gameLoop() {
 // İlk ekran
 
 showScreen('mainMenu');
+
