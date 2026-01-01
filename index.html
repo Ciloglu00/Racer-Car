@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Araba Yarış Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ana Menü -->
+    <div id="mainMenu" class="screen active">
+        <div class="menu-container">
+            <h1 class="game-title">🏎️ ARABA YARIŞI</h1>
+            <button class="menu-btn" id="startBtn">OYUNU BAŞLAT</button>
+            <button class="menu-btn" id="settingsBtn">AYARLAR</button>
+            <button class="menu-btn" id="exitBtn">ÇIKIŞ</button>
+        </div>
+    </div>
+
+    <!-- Ayarlar Menüsü -->
+    <div id="settingsMenu" class="screen">
+        <div class="menu-container">
+            <h2 class="menu-title">AYARLAR</h2>
+            
+            <div class="setting-group">
+                <label class="setting-label">Mevsim Seç:</label>
+                <select id="seasonSelect" class="setting-select">
+                    <option value="spring">İlkbahar 🌸</option>
+                    <option value="summer">Yaz ☀️</option>
+                    <option value="autumn">Sonbahar 🍂</option>
+                    <option value="winter">Kış ❄️</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">Yol Tipi:</label>
+                <select id="roadSelect" class="setting-select">
+                    <option value="highway">Otoyol</option>
+                    <option value="city">Şehir Yolu</option>
+                    <option value="country">Köy Yolu</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">Araba Seç:</label>
+                <select id="carSelect" class="setting-select">
+                    <option value="red">Kırmızı Araba</option>
+                    <option value="blue">Mavi Araba</option>
+                    <option value="green">Yeşil Araba</option>
+                    <option value="yellow">Sarı Araba</option>
+                    <option value="purple">Mor Araba</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">
+                    <input type="checkbox" id="soundToggle" checked>
+                    Ses Açık
+                </label>
+            </div>
+
+            <button class="menu-btn" id="backToMenuBtn">MENÜYE DÖN</button>
+        </div>
+    </div>
+
+    <!-- Oyun Ekranı -->
+    <div id="gameScreen" class="screen">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-ui">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Skor:</span>
+                    <span id="scoreDisplay">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Altın:</span>
+                    <span id="goldDisplay">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Bölüm:</span>
+                    <span id="levelDisplay">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="control-btn" id="pauseBtn">⏸️</button>
+            <button class="control-btn" id="menuFromGameBtn">🏠</button>
+        </div>
+
+        <!-- Duraklatma Menüsü -->
+        <div id="pauseMenu" class="overlay-menu hidden">
+            <div class="pause-container">
+                <h2>OYUN DURAKLATILDI</h2>
+                <button class="menu-btn" id="resumeBtn">DEVAM ET</button>
+                <button class="menu-btn" id="menuFromPauseBtn">ANA MENÜ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
